@@ -6,9 +6,26 @@ public class Triangle extends Shape{
     private double sideC;
 
     Triangle(double sideA, double sideB, double sideC) {
-        this.sideA = sideA;
-        this.sideB = sideB;
-        this.sideC = sideC;
+        setSideA(sideA);
+        setSideB(sideB);
+        setSideC(sideC);
+
+        if (!isTrianglePossible(sideA, sideB, sideC)) {
+            throw new IllegalStateException("[Error]: Triangle with this this parameters isn't possible. SideC is very big");
+        }
+        if (!isTrianglePossible(sideA, sideC, sideB)) {
+            throw new IllegalStateException("[Error]: Triangle with this this parameters isn't possible. SideB is very big");
+        }
+        if (!isTrianglePossible(sideC, sideB, sideA)) {
+            throw new IllegalStateException("[Error]: Triangle with this this parameters isn't possible. SideA is very big");
+        }
+    }
+
+    private boolean isTrianglePossible(double firstSide, double secondSide, double thirdSide) {
+        if ((firstSide + secondSide) > thirdSide) {
+            return true;
+        }
+        return false;
     }
 
     public double getSideA() {
@@ -16,6 +33,9 @@ public class Triangle extends Shape{
     }
 
     public void setSideA(double sideA) {
+        if (sideA <= 0) {
+            throw new IllegalStateException("[Error]: Triangle SideA should be > 0!");
+        }
         this.sideA = sideA;
     }
 
@@ -24,6 +44,9 @@ public class Triangle extends Shape{
     }
 
     public void setSideB(double sideB) {
+        if (sideB <= 0) {
+            throw new IllegalStateException("[Error]: Triangle SideB should be > 0!");
+        }
         this.sideB = sideB;
     }
 
@@ -32,6 +55,9 @@ public class Triangle extends Shape{
     }
 
     public void setSideC(double sideC) {
+        if (sideC <= 0) {
+            throw new IllegalStateException("[Error]: Triangle SideC should be > 0!");
+        }
         this.sideC = sideC;
     }
 

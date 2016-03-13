@@ -5,7 +5,7 @@ public class Circle extends Shape {
     final double pi = Math.PI;
 
     Circle(double radius) {
-        this.radius = radius;
+        setRadius(radius);
     }
 
     public double getRadius() {
@@ -13,6 +13,9 @@ public class Circle extends Shape {
     }
 
     public void setRadius(double radius) {
+        if (radius <= 0) {
+            throw new IllegalStateException("[Error]: Circle Radius should be > 0!");
+        }
         this.radius = radius;
     }
 

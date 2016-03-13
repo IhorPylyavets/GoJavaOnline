@@ -5,8 +5,8 @@ public class Rectangle extends Shape {
     private double length;
 
     Rectangle(double width, double length) {
-        this.width = width;
-        this.length = length;
+        setWidth(width);
+        setLength(length);
     }
 
     public double getWidth() {
@@ -14,6 +14,9 @@ public class Rectangle extends Shape {
     }
 
     public void setWidth(double width) {
+        if (width <= 0) {
+            throw new IllegalStateException("[Error]: Rectangle Width should be > 0!");
+        }
         this.width = width;
     }
 
@@ -22,6 +25,9 @@ public class Rectangle extends Shape {
     }
 
     public void setLength(double length) {
+        if (length <= 0) {
+            throw new IllegalStateException("[Error]: Rectangle Length should be > 0!");
+        }
         this.length = length;
     }
 
