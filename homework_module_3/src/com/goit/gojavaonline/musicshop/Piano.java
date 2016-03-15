@@ -1,4 +1,4 @@
 package com.goit.gojavaonline.musicshop;
 
-public class Piano extends MusicInstrument{
+public class Piano extends Instrument {
 }

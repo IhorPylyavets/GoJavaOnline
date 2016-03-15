@@ -1,4 +1,4 @@
 package com.goit.gojavaonline.musicshop;
 
-public class Trumpet extends MusicInstrument{
+public class Trumpet extends Instrument {
 }
