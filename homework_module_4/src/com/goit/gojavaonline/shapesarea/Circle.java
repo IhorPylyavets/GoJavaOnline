@@ -2,9 +2,8 @@ package com.goit.gojavaonline.shapesarea;
 
 public class Circle extends Shape {
     private double radius;
-    final double pi = Math.PI;
 
-    Circle(double radius) {
+    public Circle(double radius) {
         setRadius(radius);
     }
 
@@ -21,6 +20,6 @@ public class Circle extends Shape {
 
     @Override
     public double area() {
-        return pi * Math.pow(radius, 2);
+        return Math.PI * Math.pow(radius, 2);
     }
 }
