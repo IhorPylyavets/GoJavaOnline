@@ -1,12 +1,12 @@
 package com.goit.gojavaonline.musicshop;
 
-import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class MusicShop {
     private List<Instrument> instruments;
-    private String[] titleInstrument = {"piano", "guitar", "trumpet"};
+    private String[] titleInstrument = {"Piano", "Guitar", "Trumpet"};
 
     public MusicShop(List<Instrument> instruments) {
         setInstruments(instruments);
@@ -23,29 +23,26 @@ public class MusicShop {
         this.instruments = instruments;
     }
 
-    private boolean isCorrectOrder(Map<String, Integer> order) {
-        for (Map.Entry<String, Integer> entry : order.entrySet()) {
-            String key = entry.getKey();
-            int value = entry.getValue();
+    public List<Instrument> prepareInstruments(Map<String, Integer> order) {
+        if (Order.isCorrectOrderByKeyValue(order, this.titleInstrument)) {
+            Map<String, Integer> instrumentsMap = Order.determineInstrumentsMap(this.instruments);
 
-            if (!Arrays.asList(titleInstrument).contains(key)) {
-                try {
-                    throw new IncorrectOrderKeyException(key);
-                } catch (IncorrectOrderKeyException e) {
-                    System.err.println("[Error]: Key '" + e.getOrderKey() + "' not found");
-                    return false;
+            if (Order.isAvailabilityInstrumentByOrder(instrumentsMap, order)) {
+                for (Map.Entry<String, Integer> entry : order.entrySet()) {
+                    String key = entry.getKey();
+                    int value = entry.getValue();
+
+                    for (Iterator<Instrument> iterator = this.instruments.iterator(); iterator.hasNext() && value>0;) {
+                        Instrument inst = iterator.next();
+                        String instType = inst.getClass().getSimpleName();
+
+                        if (instType.equals(key)) {
+                            iterator.remove();
+                            value -= 1;
+                        }
+                    }
                 }
             }
-            if (value <= 0) {
-                throw new IllegalArgumentException("[Error]: Value '" + value + "', value should be > 0");
-            }
-        }
-        return true;
-    }
-
-    public List<Instrument> prepareInstruments(Map<String, Integer> order) {
-        if (isCorrectOrder(order)) {
-
         }
         return getInstruments();
     }
