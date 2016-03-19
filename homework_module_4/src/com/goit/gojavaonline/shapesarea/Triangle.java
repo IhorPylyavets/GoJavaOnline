@@ -10,13 +10,13 @@ public class Triangle extends Shape{
         checkSideB(sideB);
         checkSideC(sideC);
 
+        isSideACorrect(sideA, sideB, sideC);
+        isSideBCorrect(sideB, sideA, sideC);
+        isSideCCorrect(sideC, sideA, sideB);
+
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
-
-        isSideACorrect(this.sideA);
-        isSideBCorrect(this.sideB);
-        isSideCCorrect(this.sideC);
     }
 
     private void checkSideA(double sideA) {
@@ -44,22 +44,22 @@ public class Triangle extends Shape{
         return false;
     }
 
-    private boolean isSideACorrect(double valueSideA) {
-        if (!isTrianglePossible(this.sideC, this.sideB, valueSideA)) {
+    private boolean isSideACorrect(double valueSideA, double valueSideB, double valueSideC) {
+        if (!isTrianglePossible(valueSideB, valueSideC, valueSideA)) {
             throw new IllegalStateException("[Error]: Triangle with this parameters isn't possible. SideA is very big");
         }
         return true;
     }
 
-    private boolean isSideBCorrect(double valueSideB) {
-        if (!isTrianglePossible(this.sideA, this.sideC, valueSideB)) {
+    private boolean isSideBCorrect(double valueSideB, double valueSideA, double valueSideC) {
+        if (!isTrianglePossible(valueSideA, valueSideC, valueSideB)) {
             throw new IllegalStateException("[Error]: Triangle with this parameters isn't possible. SideB is very big");
         }
         return true;
     }
 
-    private boolean isSideCCorrect(double valueSideC) {
-        if (!isTrianglePossible(this.sideA, this.sideB, valueSideC)) {
+    private boolean isSideCCorrect(double valueSideC, double valueSideA, double valueSideB) {
+        if (!isTrianglePossible(valueSideA, valueSideB, valueSideC)) {
             throw new IllegalStateException("[Error]: Triangle with this parameters isn't possible. SideC is very big");
         }
         return true;
@@ -72,7 +72,7 @@ public class Triangle extends Shape{
 
     public void setSideA(double sideA) {
         checkSideA(sideA);
-        if (isSideACorrect(sideA)) {
+        if (isSideACorrect(sideA, this.sideB, this.sideC)) {
             this.sideA = sideA;
         }
     }
@@ -83,7 +83,7 @@ public class Triangle extends Shape{
 
     public void setSideB(double sideB) {
         checkSideB(sideB);
-        if (isSideBCorrect(sideB)) {
+        if (isSideBCorrect(sideB, this.sideA, this.sideC)) {
             this.sideB = sideB;
         }
     }
@@ -94,7 +94,7 @@ public class Triangle extends Shape{
 
     public void setSideC(double sideC) {
         checkSideC(sideC);
-        if (isSideCCorrect(sideC)) {
+        if (isSideCCorrect(sideC, this.sideA, this.sideB)) {
             this.sideC = sideC;
         }
     }

@@ -8,7 +8,7 @@ public class Main {
         Rectangle rectangle = new Rectangle(6.9, 9);
         System.out.println("Rectangle area:" + rectangle.area());
 
-        Triangle triangle = new Triangle(4, 3, 3);
+        Triangle triangle = new Triangle(4, 8, 3);
         System.out.println("Triangle area:" + triangle.area());
     }
 }
