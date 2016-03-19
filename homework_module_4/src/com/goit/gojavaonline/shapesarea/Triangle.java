@@ -19,6 +19,10 @@ public class Triangle extends Shape{
         this.sideC = sideC;
     }
 
+    /*как по мне можно сделать один метод(общий) а не три
+    checkSide(double side) - и им проверять три стороны
+    */
+
     private void checkSideA(double sideA) {
         if (sideA <= 0) {
             throw new IllegalStateException("[Error]: Triangle SideA should be > 0!");
@@ -36,6 +40,16 @@ public class Triangle extends Shape{
             throw new IllegalStateException("[Error]: Triangle SideC should be > 0!");
         }
     }
+
+    private void checkSide(double side) {
+        if (side <= 0) {
+            throw new IllegalStateException("[Error]: Triangle side should be > 0!");
+        }
+    }
+
+    /*с проверками сторон тут тоже много одинакового кода.
+    но... я теряюсь... как лучше?
+    сделать проверку только в конструкторе, и удалить сеттеры - типа создается триугольник и все, его менять нельзя*/
 
     private boolean isTrianglePossible(double firstSide, double secondSide, double thirdSide) {
         if ((firstSide + secondSide) > thirdSide) {
