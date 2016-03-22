@@ -7,35 +7,28 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        Instrument guitar0 = new Guitar("guitar0");
-        Instrument guitar1 = new Guitar("guitar1");
-        Instrument guitar2 = new Guitar("guitar2");
-        Instrument guitar3 = new Guitar("guitar3");
+        final List<Instrument> instrumentList = new ArrayList<>();
+        instrumentList.add(new Guitar("Guitar1", "2000", 2013));
+        instrumentList.add(new Guitar("Guitar2", "3300", 2010));
+        instrumentList.add(new Guitar("Guitar3", "1870", 2000));
+        instrumentList.add(new Guitar("Guitar4", "870", 1990));
 
-        Instrument piano0 = new Piano("piano0");
-        Instrument piano1 = new Piano("piano1");
-        Instrument piano2 = new Piano("piano2");
+        instrumentList.add(new Piano("Piano1", "1900", 1997));
+        instrumentList.add(new Piano("Piano2", "1300", 2007));
+        instrumentList.add(new Piano("Piano3", "1450", 1991));
 
-        Instrument trumpet0 = new Trumpet("trumpet0");
-        Instrument trumpet1 = new Trumpet("trumpet1");
-        Instrument trumpet2 = new Trumpet("trumpet2");
+        instrumentList.add(new Trumpet("Trumpet1", "450", 1991));
+        instrumentList.add(new Trumpet("Trumpet2", "950", 1994));
+        instrumentList.add(new Trumpet("Trumpet3", "880", 2009));
 
-        List<Instrument> instruments = new ArrayList<>();
-        instruments.add(guitar0);
-        instruments.add(guitar1);
-        instruments.add(guitar2);
-        instruments.add(guitar3);
+        instrumentList
+                .stream()
+                .forEach(instrument -> System.out.println(instrument.toString()));
 
-        instruments.add(piano0);
-        instruments.add(piano1);
-        instruments.add(piano2);
-
-        instruments.add(trumpet0);
-        instruments.add(trumpet1);
-        instruments.add(trumpet2);
+        System.out.println();
 
         System.out.println("Map instruments on shop:");
-        Map<String, Integer> instrumentsMap =  Order.determineInstrumentsMap(instruments);
+        Map<String, Integer> instrumentsMap =  Order.determineInstrumentsMap(instrumentList);
         for (Map.Entry<String, Integer> entry : instrumentsMap.entrySet()) {
             String key = entry.getKey();
             int value = entry.getValue();
@@ -44,7 +37,7 @@ public class Main {
         }
         System.out.println();
 
-        MusicShop shop = new MusicShop(instruments);
+        MusicShop shop = new MusicShop(instrumentList);
 
         Map<String, Integer> order = new HashMap<>();
         order.put("Piano", 2);
@@ -63,7 +56,7 @@ public class Main {
         shop.prepareInstruments(order);
 
         System.out.println("Map instruments on shop after prepareInstruments:");
-        instrumentsMap =  Order.determineInstrumentsMap(instruments);
+        instrumentsMap =  Order.determineInstrumentsMap(instrumentList);
         for (Map.Entry<String, Integer> entry : instrumentsMap.entrySet()) {
             String key = entry.getKey();
             int value = entry.getValue();
@@ -90,7 +83,7 @@ public class Main {
         shop.prepareInstruments(order2);
 
         System.out.println("Map instruments on shop after prepareInstruments2:");
-        instrumentsMap =  Order.determineInstrumentsMap(instruments);
+        instrumentsMap =  Order.determineInstrumentsMap(instrumentList);
         for (Map.Entry<String, Integer> entry : instrumentsMap.entrySet()) {
             String key = entry.getKey();
             int value = entry.getValue();

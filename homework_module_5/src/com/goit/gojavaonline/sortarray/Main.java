@@ -9,7 +9,7 @@ public class Main {
         }
         System.out.println();
 
-        ArraySort.sortQuick(arr, 0, arr.length-1);
+        ArraySort.sortQuick(arr);
 
         for (int element : arr) {
             System.out.print(element + " ");

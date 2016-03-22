@@ -105,14 +105,18 @@ public class ArraySort {
         }
     }
 
-    public static void sortQuick(int[] array, int left, int right) {
+    public static void sortQuick(int[] array) {
+        recursiveSortQuick(array, 0, array.length-1);
+    }
+
+    private static void recursiveSortQuick(int[] array, int left, int right) {
         int index = partition(array, left, right);
 
         if (left < index-1) {
-            sortQuick(array, left, index - 1);
+            recursiveSortQuick(array, left, index - 1);
         }
         if (index < right) {
-            sortQuick(array, index, right);
+            recursiveSortQuick(array, index, right);
         }
     }
 
@@ -123,7 +127,7 @@ public class ArraySort {
         int pilot = array[(left+right) / 2];
 
         while (i <= j) {
-            while (array[i] < pilot) {
+            while (array[i] < pilot) { //0 < 1 ,,,, a b
                 i++;
             }
             while (array[j] > pilot) {
