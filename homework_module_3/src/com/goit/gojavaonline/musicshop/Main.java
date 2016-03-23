@@ -22,70 +22,73 @@ public class Main {
         instrumentList.add(new Trumpet("Trumpet3", "880", 2009));
 
         System.out.println(PrintCollections.getJSONCollections(instrumentList));
+        System.out.println();
 
-        /*System.out.println("Map instruments on shop:");
-        Map<String, Integer> instrumentsMap =  Order.determineInstrumentsMap(instrumentList);
-        for (Map.Entry<String, Integer> entry : instrumentsMap.entrySet()) {
-            String key = entry.getKey();
+        System.out.println("Map instruments on shop:");
+        Map<Class, Integer> instrumentsMap =  OrderUtils.determineInstrumentsMap(instrumentList);
+        for (Map.Entry<Class, Integer> entry : instrumentsMap.entrySet()) {
+            Class key = entry.getKey();
             int value = entry.getValue();
 
-            System.out.print(" " + key + "(" + value + ")");
+            System.out.print(" " + key.getSimpleName() + "(" + value + ")");
         }
         System.out.println();
 
         MusicShop shop = new MusicShop(instrumentList);
 
-        Map<String, Integer> order = new HashMap<>();
-        order.put("Piano", 2);
-        order.put("Guitar", 1);
-        order.put("Trumpet", 1);
+        Map<Class, Integer> order = new HashMap<>();
+        order.put(Piano.class, 2);
+        order.put(Guitar.class, 1);
+        order.put(Trumpet.class, 1);
 
         System.out.println("Map instruments on order:");
-        for (Map.Entry<String, Integer> entry : order.entrySet()) {
-            String key = entry.getKey();
+        for (Map.Entry<Class, Integer> entry : order.entrySet()) {
+            Class key = entry.getKey();
             int value = entry.getValue();
 
-            System.out.print(" " + key + "(" + value + ")");
+            System.out.print(" " + key.getSimpleName() + "(" + value + ")");
         }
         System.out.println();
 
         shop.prepareInstruments(order);
 
         System.out.println("Map instruments on shop after prepareInstruments:");
-        instrumentsMap =  Order.determineInstrumentsMap(instrumentList);
-        for (Map.Entry<String, Integer> entry : instrumentsMap.entrySet()) {
-            String key = entry.getKey();
+        instrumentsMap =  OrderUtils.determineInstrumentsMap(instrumentList);
+        for (Map.Entry<Class, Integer> entry : instrumentsMap.entrySet()) {
+            Class key = entry.getKey();
             int value = entry.getValue();
 
-            System.out.print(" " + key + "(" + value + ")");
+            System.out.print(" " + key.getSimpleName() + "(" + value + ")");
         }
         System.out.println();
+        System.out.println();
 
+        System.out.println("Order #2");
 
-        Map<String, Integer> order2 = new HashMap<>();
-        order2.put("Piano", 1);
-        order2.put("Guitar", 1);
-        order2.put("Trumpet", 3);
+        Map<Class, Integer> order2 = new HashMap<>();
+        order2.put(Piano.class, 1);
+        order2.put(Guitar.class, 1);
+        order2.put(Trumpet.class, 4);
 
         System.out.println("Map instruments on order2:");
-        for (Map.Entry<String, Integer> entry : order2.entrySet()) {
-            String key = entry.getKey();
+        for (Map.Entry<Class, Integer> entry : order2.entrySet()) {
+            Class key = entry.getKey();
             int value = entry.getValue();
 
-            System.out.print(" " + key + "(" + value + ")");
+            System.out.print(" " + key.getSimpleName() + "(" + value + ")");
         }
         System.out.println();
 
         shop.prepareInstruments(order2);
 
         System.out.println("Map instruments on shop after prepareInstruments2:");
-        instrumentsMap =  Order.determineInstrumentsMap(instrumentList);
-        for (Map.Entry<String, Integer> entry : instrumentsMap.entrySet()) {
-            String key = entry.getKey();
+        instrumentsMap =  OrderUtils.determineInstrumentsMap(instrumentList);
+        for (Map.Entry<Class, Integer> entry : instrumentsMap.entrySet()) {
+            Class key = entry.getKey();
             int value = entry.getValue();
 
-            System.out.print(" " + key + "(" + value + ")");
+            System.out.print(" " + key.getSimpleName() + "(" + value + ")");
         }
-        System.out.println();*/
+        System.out.println();
     }
 }
