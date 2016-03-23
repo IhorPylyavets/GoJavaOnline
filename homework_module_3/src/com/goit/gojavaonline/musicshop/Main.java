@@ -21,13 +21,9 @@ public class Main {
         instrumentList.add(new Trumpet("Trumpet2", "950", 1994));
         instrumentList.add(new Trumpet("Trumpet3", "880", 2009));
 
-        instrumentList
-                .stream()
-                .forEach(instrument -> System.out.println(instrument.toString()));
+        System.out.println(PrintCollections.getJSONCollections(instrumentList));
 
-        System.out.println();
-
-        System.out.println("Map instruments on shop:");
+        /*System.out.println("Map instruments on shop:");
         Map<String, Integer> instrumentsMap =  Order.determineInstrumentsMap(instrumentList);
         for (Map.Entry<String, Integer> entry : instrumentsMap.entrySet()) {
             String key = entry.getKey();
@@ -90,6 +86,6 @@ public class Main {
 
             System.out.print(" " + key + "(" + value + ")");
         }
-        System.out.println();
+        System.out.println();*/
     }
 }
