@@ -24,6 +24,10 @@ public class OrderUtils {
             Class orderKey = entry.getKey();
             int orderValue = entry.getValue();
 
+            if (orderValue <= 0) {
+                throw new IllegalArgumentException("[Error]: Value '" + orderValue + "', value should be > 0");
+            }
+
             if (instruments.containsKey(orderKey)) {
                 int instrumentsCount = instruments.get(orderKey);
 

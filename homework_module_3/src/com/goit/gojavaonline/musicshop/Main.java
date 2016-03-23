@@ -38,7 +38,7 @@ public class Main {
 
         Map<Class, Integer> order = new HashMap<>();
         order.put(Piano.class, 2);
-        order.put(Guitar.class, 1);
+        order.put(Guitar.class, -1);
         order.put(Trumpet.class, 1);
 
         System.out.println("Map instruments on order:");
@@ -68,7 +68,7 @@ public class Main {
         Map<Class, Integer> order2 = new HashMap<>();
         order2.put(Piano.class, 1);
         order2.put(Guitar.class, 1);
-        order2.put(Trumpet.class, 4);
+        order2.put(Trumpet.class, 2);
 
         System.out.println("Map instruments on order2:");
         for (Map.Entry<Class, Integer> entry : order2.entrySet()) {
