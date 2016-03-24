@@ -21,7 +21,7 @@ public class Main {
         instrumentList.add(new Trumpet("Trumpet2", "950", 1994));
         instrumentList.add(new Trumpet("Trumpet3", "880", 2009));
 
-        System.out.println(PrintCollections.getJSONCollections(instrumentList));
+        PrintCollections.printInstruments(instrumentList);
         System.out.println();
 
         System.out.println("Map instruments on shop:");
@@ -38,7 +38,7 @@ public class Main {
 
         Map<Class, Integer> order = new HashMap<>();
         order.put(Piano.class, 2);
-        order.put(Guitar.class, -1);
+        order.put(Guitar.class, 1);
         order.put(Trumpet.class, 1);
 
         System.out.println("Map instruments on order:");
