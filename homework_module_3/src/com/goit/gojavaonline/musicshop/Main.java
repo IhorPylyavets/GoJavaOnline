@@ -21,8 +21,8 @@ public class Main {
         instrumentList.add(new Trumpet("Trumpet2", "950", 1994));
         instrumentList.add(new Trumpet("Trumpet3", "880", 2009));
 
-        PrintCollections.printInstruments(instrumentList);
-        System.out.println();
+        String table = PrintCollections.instrumentsToString(instrumentList);
+        System.out.println(table);
 
         System.out.println("Map instruments on shop:");
         Map<Class, Integer> instrumentsMap =  OrderUtils.determineInstrumentsMap(instrumentList);

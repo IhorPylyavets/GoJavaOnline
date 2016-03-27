@@ -3,25 +3,28 @@ package com.goit.gojavaonline.musicshop;
 import java.util.List;
 
 public class PrintCollections {
-    public static void printInstruments(List<Instrument> instrumentList) {
+    public static String instrumentsToString(List<Instrument> instrumentList) {
+        StringBuilder sb = new StringBuilder();
+
         String title = "Title";
         String price = "Price";
         String issueYear = "IssueYear";
-        System.out.format("%14s %10s   %10s%n", title, price, issueYear);
 
-        for (int i = 0; i < 40; i++) {
-            System.out.print("-");
-        }
-        System.out.println();
+        String titles = String.format("%14s %10s   %10s%n", title, price, issueYear);
+        sb.append(titles);
 
         final int[] id = {1};
 
         instrumentList.stream()
                 .forEach(instrument -> {
-                    System.out.format("%2d. %10s %10s   %10d%n", id[0],
+                    String row = String.format("%2d. %10s %10s   %10d%n", id[0],
                             instrument.getTitle(), instrument.getPrice(), instrument.getIssueYear());
+
+                    sb.append(row);
                     id[0] += 1;
                 });
+
+        return sb.toString();
     }
 
     public static String getJSONCollections(List<Instrument> instrumentList) {
