@@ -142,10 +142,7 @@ public class ExampleClass {
                 "Java Key Chain"
         };
 
-        //DataInputStream in = null;
-
         try (final ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(outFile)))) {
-            //DataOutputStream out = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(outFile)));
 
             out.writeObject(Calendar.getInstance());
 

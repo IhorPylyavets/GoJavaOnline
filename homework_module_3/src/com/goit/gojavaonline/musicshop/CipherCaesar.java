@@ -8,6 +8,7 @@ public class CipherCaesar {
     public static String encrypt(String textForCrypt, int shift) {
         StringBuilder sb = new StringBuilder();
 
+        shift %= ALPHABET_COUNT;
         textForCrypt = textForCrypt.toLowerCase();
 
         for (int i = 0; i < textForCrypt.length(); i++) {
@@ -30,6 +31,7 @@ public class CipherCaesar {
     public static String decrypt(String textForDecrypt, int shift) {
         StringBuilder sb = new StringBuilder();
 
+        shift %= ALPHABET_COUNT;
         textForDecrypt = textForDecrypt.toLowerCase();
 
         for (int i = 0; i < textForDecrypt.length(); i++) {
