@@ -10,14 +10,18 @@ public class Main {
             e.printStackTrace();
         }*/
 
-        //ExampleClass.simplePrint();
         try {
+            ExampleClass.dataTest("invoicedata");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*try {
             ExampleClass.objectStream("invoicedata");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 }

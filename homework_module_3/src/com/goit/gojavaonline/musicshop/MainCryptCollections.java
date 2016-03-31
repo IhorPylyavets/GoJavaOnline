@@ -22,8 +22,8 @@ public class MainCryptCollections {
         instrumentList.add(new Trumpet("Trumpet2", "950", 1994));
         instrumentList.add(new Trumpet("Trumpet3", "880", 2009));
 
-        String table = PrintCollections.instrumentsToString(instrumentList);
-        System.out.println(table);
+        String instrumentsTable = PrintCollections.instrumentsToString(instrumentList);
+        System.out.println(instrumentsTable);
 
         int shift = 0;
 
@@ -37,12 +37,25 @@ public class MainCryptCollections {
             e.printStackTrace();
         }
 
-        String encryptText = CipherCaesar.encrypt(table, shift);
+        String encryptText = CipherCaesar.encrypt(instrumentsTable, shift);
         String decryptText = CipherCaesar.decrypt(encryptText, shift);
 
         System.out.println("EncryptTable: ");
         System.out.println(encryptText);
+
         System.out.println("DecryptTable: ");
         System.out.println(decryptText);
+
+        try {
+            ReadWriteFile.writeToFileEncryptedText("crypt.txt", instrumentsTable, shift);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            ReadWriteFile.decryptTextFromFile("crypt.txt", "decrypt.txt", shift);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
