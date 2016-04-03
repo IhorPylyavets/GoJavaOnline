@@ -3,9 +3,7 @@ package com.goit.gojavaonline.shapesarea;
 public class Circle extends Shape {
     private double radius;
 
-    public Circle(double radius) {
-        setRadius(radius);
-    }
+    public Circle() {}
 
     public double getRadius() {
         return radius;

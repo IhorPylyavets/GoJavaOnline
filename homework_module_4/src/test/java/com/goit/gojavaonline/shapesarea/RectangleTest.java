@@ -12,7 +12,9 @@ public class RectangleTest {
         final double width = 5;
         final double length = 4;
 
-        Rectangle rectangle = new Rectangle(width, length);
+        Rectangle rectangle = new Rectangle();
+        rectangle.setWidth(width);
+        rectangle.setLength(length);
 
         final double result = rectangle.area();
 

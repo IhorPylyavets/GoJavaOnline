@@ -11,7 +11,8 @@ public class CircleTest {
     public void testArea() throws Exception {
         final double radius = 5;
 
-        Circle circle = new Circle(radius);
+        Circle circle = new Circle();
+        circle.setRadius(8.72);
 
         final double result = circle.area();
 
