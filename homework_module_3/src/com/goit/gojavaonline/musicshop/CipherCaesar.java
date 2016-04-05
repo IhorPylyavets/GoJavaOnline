@@ -1,6 +1,6 @@
 package com.goit.gojavaonline.musicshop;
 
-public class CipherCaesar {
+public class CipherCaesar { // http://www.dotnetperls.com/caesar-java
     private static final int ALPHABET_COUNT = 26;
     private static final int LOWERCASE_START = 97;
     private static final int LOWERCASE_END = 122;

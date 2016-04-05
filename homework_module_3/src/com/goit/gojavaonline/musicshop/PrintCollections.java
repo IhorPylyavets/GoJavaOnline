@@ -6,11 +6,7 @@ public class PrintCollections {
     public static String instrumentsToString(List<Instrument> instrumentList) {
         StringBuilder sb = new StringBuilder();
 
-        String title = "Title";
-        String price = "Price";
-        String issueYear = "IssueYear";
-
-        String titles = String.format("%14s %10s   %10s%n", title, price, issueYear);
+        String titles = String.format("%14s %10s   %10s%n", "Title", "Price", "IssueYear");
         sb.append(titles);
 
         final int[] id = {1};

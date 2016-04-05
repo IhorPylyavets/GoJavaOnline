@@ -46,7 +46,7 @@ public class MainCryptCollections {
         System.out.println("DecryptTable: ");
         System.out.println(decryptText);
 
-        try {
+        /*try {
             ReadWriteFile.writeToFileEncryptedText("crypt.txt", instrumentsTable, shift);
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,6 +56,6 @@ public class MainCryptCollections {
             ReadWriteFile.decryptTextFromFile("crypt.txt", "decrypt.txt", shift);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }
