@@ -8,6 +8,11 @@ import java.util.List;
 
 public class MainCryptCollections {
     public static void main(String[] args) {
+        String s = "Hello GoIt GoOnlineJava";
+        String encryptS = CipherCaesar.encrypt(s, 7);
+        System.out.println("s: " + s);
+        System.out.println("encryptS: " + encryptS);
+
         final List<Instrument> instrumentList = new ArrayList<>();
         instrumentList.add(new Guitar("Guitar1", "2000", 2013));
         instrumentList.add(new Guitar("Guitar2", "3300", 2010));
@@ -46,7 +51,7 @@ public class MainCryptCollections {
         System.out.println("DecryptTable: ");
         System.out.println(decryptText);
 
-        /*try {
+        try {
             ReadWriteFile.writeToFileEncryptedText("crypt.txt", instrumentsTable, shift);
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,6 +61,6 @@ public class MainCryptCollections {
             ReadWriteFile.decryptTextFromFile("crypt.txt", "decrypt.txt", shift);
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 }
